@@ -76,6 +76,10 @@ function PWD {
     pwd | awk -F\/ '{if (NF>4) print "...", $(NF-2), $(NF-1), $(NF); else if (NF>3) print $(NF-2),$(NF-1),$(NF); else if (NF>2) print $(NF-1),$(NF); else if (NF>1) print $(NF);}' | sed -e 's# #\/#g'
 }
 
+function git_branch {
+    __git_ps1
+}
+
 function custom_console {
     local RED="\[\033[0;31m\]"
     local YELLOW="\[\033[0;33m\]"
@@ -86,7 +90,7 @@ function custom_console {
     local LIGHTYELLOW="\[\033[1;33m\]"
     local LIGHTCYAN="\[\033[1;36m\]"
     local NOCOLOR="\[\e[0m\]"
-    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV)$YELLOW $(__git_ps1 "(%s) ")$NOCOLOR\$ "
+    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV)$YELLOW$(git_branch)$NOCOLOR \$ "
     export PS2="> "
 }
 

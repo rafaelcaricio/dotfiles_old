@@ -8,10 +8,16 @@ create_ln_if_not_yet_created(){
     fi
 }
 
-pwd=$PWD
+# Get root
+DOTFILES="$PWD/`dirname $0`"
 
-create_ln_if_not_yet_created "$HOME/.bash_profile" "$pwd/.bash_profile"
-create_ln_if_not_yet_created "$HOME/.git-completion.bash" "$pwd/.git-completion.bash"
+create_ln_if_not_yet_created "$HOME/.bash_profile" "$DOTFILES/.bash_profile"
+create_ln_if_not_yet_created "$HOME/.git-completion.bash" "$DOTFILES/.git-completion.bash"
+create_ln_if_not_yet_created "$HOME/.extra_bin" "$DOTFILES/bin"
+
+# Set git user
+git config --global user.name "Rafael Carício"
+git config --global user.email "rafael.jacinto@gmail.com"
 
 # Automatically track new branches
 git config --global push.default tracking

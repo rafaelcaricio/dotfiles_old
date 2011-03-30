@@ -2,8 +2,8 @@ export TERM="xterm-color"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR="mvim"
-export PATH=/Users/rafael.fonseca/bin:$PATH
-export GLB_PROJECTS_ROOT_PATH="/Users/rafael.fonseca/Sites/dev"
+export PATH=$HOME/bin:$PATH
+export GLB_PROJECTS_ROOT_PATH=$HOME/Sites/dev
 
 DEFAULT_VENV="globocom"
 
@@ -71,22 +71,6 @@ function venv_cd {
 
 alias cd="venv_cd"
 
-# Git support functions for Evil Tomato
-# Mohit Cheppudira <mohit@muthanna.com>
-
-# Returns "*" if the current git branch is dirty.
-function evil_git_dirty {
-    [[ $(git diff --shortstat 2>/dev/null | tail -n1) != "" ]] && echo "*"
-}
-
-# Get the current git branch name (if available)
-evil_git_prompt() {
-    local ref=$(git branch 2>/dev/null | grep '^\*' | cut -b 3- | sed 's/[\(\)]//g')
-    if [ "$ref" != "" ]; then
-        echo " ($ref$(evil_git_dirty))"
-    fi
-}
-
 function PWD {
     pwd | awk -F\/ '{if (NF>4) print "...", $(NF-2), $(NF-1), $(NF); else if (NF>3) print $(NF-2),$(NF-1),$(NF); else if (NF>2) print $(NF-1),$(NF); else if (NF>1) print $(NF);}' | sed -e 's# #\/#g'
 }
@@ -101,9 +85,11 @@ function custom_console {
     local LIGHTYELLOW="\[\033[1;33m\]"
     local LIGHTCYAN="\[\033[1;36m\]"
     local NOCOLOR="\[\e[0m\]"
-    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV)$YELLOW\$(evil_git_prompt)$NOCOLOR \$ "
+    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\W$(__git_ps1 " (%s)")$NOCOLOR \$ "
     export PS2="> "
 }
+
+source $HOME/.git-completion.bash
 
 # virtualenvwrapper settings
 export WORKON_HOME=~/.virtualenvs

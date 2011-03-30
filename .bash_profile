@@ -4,6 +4,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR="mvim"
 export PATH=$HOME/bin:$PATH
 export GLB_PROJECTS_ROOT_PATH=$HOME/Sites/dev
+source $HOME/.git-completion.bash
 
 DEFAULT_VENV="globocom"
 
@@ -85,11 +86,9 @@ function custom_console {
     local LIGHTYELLOW="\[\033[1;33m\]"
     local LIGHTCYAN="\[\033[1;36m\]"
     local NOCOLOR="\[\e[0m\]"
-    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\W$(__git_ps1 " (%s)")$NOCOLOR \$ "
+    export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV)$YELLOW $(__git_ps1 "(%s) ")$NOCOLOR\$ "
     export PS2="> "
 }
-
-source $HOME/.git-completion.bash
 
 # virtualenvwrapper settings
 export WORKON_HOME=~/.virtualenvs

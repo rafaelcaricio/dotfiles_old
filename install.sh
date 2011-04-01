@@ -8,9 +8,15 @@ create_ln_if_not_yet_created(){
     fi
 }
 
+pushd vim/.vim/bundle
+make
+popd
+
 # Get root
 DOTFILES="$PWD/`dirname $0`"
 
+create_ln_if_not_yet_created "$HOME/.vim" "$DOTFILES/vim/.vim"
+create_ln_if_not_yet_created "$HOME/.vimrc" "$DOTFILES/vim/.vimrc"
 create_ln_if_not_yet_created "$HOME/.bash_profile" "$DOTFILES/.bash_profile"
 create_ln_if_not_yet_created "$HOME/.git-completion.bash" "$DOTFILES/.git-completion.bash"
 create_ln_if_not_yet_created "$HOME/.extra_bin" "$DOTFILES/bin"

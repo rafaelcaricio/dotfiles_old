@@ -111,4 +111,3 @@ endif
 
 map <F2> :call TrimWhiteSpace()<CR>
 map <F1> :tabnew<CR>
-

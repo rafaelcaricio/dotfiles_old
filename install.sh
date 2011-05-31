@@ -12,6 +12,8 @@ pushd vim/.vim/bundle
 make
 popd
 
+git submodule update --init --recursive
+
 # Get root
 DOTFILES="$PWD/`dirname $0`"
 
@@ -39,3 +41,4 @@ git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.lg "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
 
+source ".bash_profile"

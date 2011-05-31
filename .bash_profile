@@ -68,6 +68,7 @@ LIGHTBLUE="\[\033[1;34m\]"
 LIGHTYELLOW="\[\033[1;33m\]"
 LIGHTCYAN="\[\033[1;36m\]"
 NOCOLOR="\[\e[0m\]"
-export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY $YELLOW\$(__git_ps1)$NOCOLOR \$ "
+
+export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\$(__git_ps1)$NOCOLOR \$ "
 export PS2="> "
 

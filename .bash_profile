@@ -5,6 +5,7 @@ export EDITOR="mvim"
 export PATH=$HOME/bin:$PATH
 export GLB_PROJECTS_ROOT_PATH=$HOME/dev/globocom/
 export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 source $HOME/.git-completion.bash
 
 DEFAULT_VENV="globo.com"
@@ -26,6 +27,15 @@ alias rmpyc='find . -name "*.pyc" -delete'
 # mysql commands
 alias mysql_start='mysqld &'
 alias mysql_stop='killall mysqld'
+
+alias solr_start='make start -C ~/dev/globocom/busca-nova-plataforma'
+alias solr_stop='make stop -C ~/dev/globocom/busca-nova-plataforma'
+
+alias activemq_start='make start -C ~/dev/globocom/barramento'
+alias activemq_stop='make stop -C ~/dev/globocom/barramento'
+
+alias stop_all='solr_stop; activemq_stop; selenium stop; mysql_stop'
+alias start_all='stop_all; solr_start; activemq_start; selenium start; mysql_start'
 
 alias simple-server='python -m SimpleHTTPServer'
 
@@ -59,6 +69,7 @@ export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 workon "$DEFAULT_VENV" && export CD_VIRTUAL_ENV="$DEFAULT_VENV"
 
+blow_my_shell () {
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -71,4 +82,11 @@ NOCOLOR="\[\e[0m\]"
 
 export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\$(__git_ps1)$NOCOLOR \$ "
 export PS2="> "
+}
 
+upenv() {
+    workon $1
+    blow_my_shell
+}
+
+blow_my_shell

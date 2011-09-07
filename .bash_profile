@@ -80,7 +80,7 @@ LIGHTYELLOW="\[\033[1;33m\]"
 LIGHTCYAN="\[\033[1;36m\]"
 NOCOLOR="\[\e[0m\]"
 
-export PS1="$NOCOLOR|\$(date +%H:%M)| $LIGHTBLUE\u $LIGHTCYAN@ $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\$(__git_ps1)$NOCOLOR \$ "
+export PS1="$NOCOLOR|\$(date +%H:%M)| $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\$(__git_ps1)$NOCOLOR \$ "
 export PS2="> "
 }
 
@@ -90,3 +90,4 @@ upenv() {
 }
 
 blow_my_shell
+alias run_redis=redis-server /usr/local/etc/redis.conf

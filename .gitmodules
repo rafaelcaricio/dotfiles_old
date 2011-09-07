@@ -19,3 +19,12 @@
 [submodule "vim/.vim/bundle/xmledit"]
 	path = vim/.vim/bundle/xmledit
 	url = https://github.com/sukima/xmledit.git
+[submodule "vim/.vim/bundle/vim-less"]
+	path = vim/.vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/.vim/bundle/vim-jade"]
+	path = vim/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/.vim/bundle/eregex"]
+	path = vim/.vim/bundle/eregex
+	url = https://github.com/othree/eregex.vim.git

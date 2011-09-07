@@ -1,7 +1,7 @@
 colorscheme blackboard
 
 if has("gui_running")
-  set guifont=Inconsolata:h18
+  set guifont=Inconsolata:h14
 endif
 
 filetype off
@@ -111,3 +111,8 @@ endif
 
 map <F2> :call TrimWhiteSpace()<CR>
 map <F1> :tabnew<CR>
+
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap ,/ /
+nnoremap ,? ?

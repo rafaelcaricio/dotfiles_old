@@ -91,3 +91,7 @@ upenv() {
 
 blow_my_shell
 alias run_redis=redis-server /usr/local/etc/redis.conf
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi

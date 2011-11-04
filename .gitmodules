@@ -28,3 +28,6 @@
 [submodule "vim/.vim/bundle/eregex"]
 	path = vim/.vim/bundle/eregex
 	url = https://github.com/othree/eregex.vim.git
+[submodule "vim/.vim/bundle/syntastic"]
+	path = vim/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

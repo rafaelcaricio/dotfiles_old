@@ -67,9 +67,7 @@ function PWD {
 # virtualenvwrapper settings
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-workon "$DEFAULT_VENV" && export CD_VIRTUAL_ENV="$DEFAULT_VENV"
 
-blow_my_shell () {
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -80,18 +78,12 @@ LIGHTYELLOW="\[\033[1;33m\]"
 LIGHTCYAN="\[\033[1;36m\]"
 NOCOLOR="\[\e[0m\]"
 
-export PS1="$NOCOLOR|\$(date +%H:%M)| $NOCOLOR[/\$(PWD)] $GRAY\$(basename $VIRTUAL_ENV) $YELLOW\$(__git_ps1)$NOCOLOR \$ "
+export PS1="$NOCOLOR-\$(date +%H:%M)- $NOCOLOR[/\$(PWD)] $YELLOW\$(__git_ps1)$NOCOLOR \$ "
 export PS2="> "
-}
 
-upenv() {
-    workon $1
-    blow_my_shell
-}
-
-blow_my_shell
-alias run_redis=redis-server /usr/local/etc/redis.conf
+workon globo.com
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
+export PATH=/opt/local/bin:/opt/local/sbin:/Users/rafael.caricio/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/rafael.caricio/bin

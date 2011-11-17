@@ -22,6 +22,7 @@ create_ln_if_not_yet_created "$HOME/.vimrc" "$DOTFILES/vim/.vimrc"
 create_ln_if_not_yet_created "$HOME/.bash_profile" "$DOTFILES/.bash_profile"
 create_ln_if_not_yet_created "$HOME/.git-completion.bash" "$DOTFILES/.git-completion.bash"
 create_ln_if_not_yet_created "$HOME/.extra_bin" "$DOTFILES/bin"
+create_ln_if_not_yet_created "$HOME/.virtualenv_hooks" "$DOTFILES/.virtualenv_hooks"
 
 # Set git user
 git config --global user.name "Rafael Carício"

@@ -102,7 +102,7 @@ augroup mkd
 augroup END
 
 nmap <silent> <Leader>y :CommandTFlush<CR>
-nmap <silent> <Leader>t :CommandT<CR>
+nmap <silent> <Leader>t :CtrlP<CR>
 
 if !exists("*TrimWhiteSpace")
     " Removes trailing spaces

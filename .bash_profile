@@ -66,7 +66,6 @@ function PWD {
 
 # virtualenvwrapper settings
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
@@ -81,9 +80,17 @@ NOCOLOR="\[\e[0m\]"
 export PS1="$NOCOLOR-\$(date +%H:%M)- $NOCOLOR[/\$(PWD)] $YELLOW\$(__git_ps1)$NOCOLOR \$ "
 export PS2="> "
 
-workon globo.com
-
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 export PATH=/opt/local/bin:/opt/local/sbin:/Users/rafael.caricio/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/rafael.caricio/bin
+export PATH="$PATH:/Users/rafael.caricio/dev/mobile/Cordova"
+export PATH="$PATH:/Users/rafael.caricio/dev/android-sdk-macosx/tools"
+export PATH="$PATH:/Users/rafael.caricio/dev/android-sdk-macosx/platform-tools"
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH

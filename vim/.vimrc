@@ -101,8 +101,14 @@ augroup mkd
     autocmd BufRead,BufEnter *.markdown set ai formatoptions=tcroqn2 comments=n:&gt;
 augroup END
 
-nmap <silent> <Leader>y :CommandTFlush<CR>
+nmap <silent> <Leader>y :CtrlPMRU<CR>
 nmap <silent> <Leader>t :CtrlP<CR>
+
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_lazy_update = 100
+let g:ctrlp_max_height = 30
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_mruf_relative = 1
 
 if !exists("*TrimWhiteSpace")
     " Removes trailing spaces

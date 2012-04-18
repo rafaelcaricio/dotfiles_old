@@ -22,7 +22,6 @@ create_ln_if_not_yet_created "$HOME/.vimrc" "$DOTFILES/vim/.vimrc"
 create_ln_if_not_yet_created "$HOME/.bash_profile" "$DOTFILES/.bash_profile"
 create_ln_if_not_yet_created "$HOME/.git-completion.bash" "$DOTFILES/.git-completion.bash"
 create_ln_if_not_yet_created "$HOME/.extra_bin" "$DOTFILES/bin"
-create_ln_if_not_yet_created "$HOME/.virtualenv_hooks" "$DOTFILES/.virtualenv_hooks"
 
 # Set git user
 git config --global user.name "Rafael Carício"
@@ -37,9 +36,13 @@ git config --global color.ui auto
 
 # Git aliases
 git config --global alias.st status
-git config --global alias.ci commit
-git config --global alias.co checkout
+git config --global alias.co commit
+git config --global alias.com "commit -m"
+git config --global alias.ck checkout
 git config --global alias.br branch
+git config --global alias.pu "pull"
+git config --global alias.purr "pull --rebase"
 git config --global alias.lg "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
+git config --global alias.logg "log --graph --color --decorate"
 
 source ".bash_profile"

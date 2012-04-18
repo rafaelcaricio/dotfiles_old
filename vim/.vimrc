@@ -109,9 +109,9 @@ nmap <silent> <Leader>y :CtrlPMRU<CR>
 nmap <silent> <Leader>t :CtrlP<CR>
 
 let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$|\.svn$',
-            \ 'file': '\.jpg$|\.png$|\.gif$|\.pyc$|\.pyo$|\.pdf$|\.psd$',
-            \ 'link': '',
+            \ 'dir':  '\.git|\.svn|\.hg$',
+            \ 'file': '\.jpg|\.png|\.gif|\.pyc|\.pyo|\.pdf|\.psd|\.so$',
+            \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
             \ }
 
 let g:ctrlp_open_new_file = 't'

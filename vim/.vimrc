@@ -31,11 +31,17 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
+set wildignore=*.swp,*.bak,*.pyc,*/.git/*
+set wildignore+=*/tmp/*,*.so,*.zip   " Linux/MacOSX
 set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
+
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
 
 nnoremap / /\v
 vnoremap / /\v
@@ -108,17 +114,16 @@ augroup END
 nmap <silent> <Leader>y :CtrlPMRU<CR>
 nmap <silent> <Leader>t :CtrlP<CR>
 
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git|\.svn|\.hg$',
-            \ 'file': '\.jpg|\.png|\.gif|\.pyc|\.pyo|\.pdf|\.psd|\.so$',
-            \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-            \ }
-
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_lazy_update = 100
 let g:ctrlp_max_height = 30
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_mruf_relative = 1
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\.git|\.hg|\.svn|.*\.egg-info.*$',
+	\ 'file': '\.DS_Store|\.so|\.jpg|\.gif|\.png|\.psd$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
 
 if !exists("*TrimWhiteSpace")
     " Removes trailing spaces
@@ -139,3 +144,7 @@ nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
+
+set colorcolumn=80
+
+let g:pyflakes_use_quickfix = 0

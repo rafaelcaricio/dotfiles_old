@@ -17,6 +17,7 @@ alias lla='ls -la'
 alias cdhome='cd ~/'
 alias uuid='python -c "import sys;import uuid;sys.stdout.write(str(uuid.uuid4()))" | pbcopy'
 alias git-init='sh $HOME/.extra_bin/git-init.sh'
+alias timestamp='echo $(date +%Y%m%d%H%M%S)'
 
 # remove .svn folders
 alias rmsvn='find . -type d -name .svn | xargs rm -rf'
@@ -64,6 +65,8 @@ function PWD {
     pwd | awk -F\/ '{if (NF>4) print "...", $(NF-2), $(NF-1), $(NF); else if (NF>3) print $(NF-2),$(NF-1),$(NF); else if (NF>2) print $(NF-1),$(NF); else if (NF>1) print $(NF);}' | sed -e 's# #\/#g'
 }
 
+export CC=gcc
+
 # virtualenvwrapper settings
 export WORKON_HOME=~/.virtualenvs
 
@@ -94,3 +97,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
+
